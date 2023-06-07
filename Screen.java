@@ -4,8 +4,8 @@ import java.lang.Math.*;
 //Ben's note:
 // You need to add screen size detection to have a constant size!
 public class Screen {
-	int sizeX = 200;
-	int sizeY = 200;
+	int sizeX = 300;
+	int sizeY = 300;
 	int lastquad;
 	
   private char[][] m_screen = new char[sizeX][sizeY];
@@ -56,6 +56,13 @@ public class Screen {
     }
   }
   
+  // Clear Screen Method
+  public void clearScr() {
+	System.out.flush();
+    System.out.print("\033[H\033[2J");
+  }
+
+  
   // Get Fake Center Point
   public void getCen() {
       System.out.print("Center: " + (sizeX/2) + "," + (sizeY/2));
@@ -73,11 +80,12 @@ public class Screen {
 	  System.out.println(slope);
 	  //fix?
 	  // drawing line
-		  for(double i = 0.0; i < distance; i++) {
-			  this.CordChange(newV, (int)(a_X+i), (int)(a_Y+(i*slope)));
+		  for(double i = 0.0; i < distance/2; i++) {
+			  this.CordChange(newV, (int)(a_Y*i), (int)(a_X+(i*slope*1.7)));
 		  }	 
 	}
 
+  // Draw Line over Time (Input Double Seconds) 
   
   
   
